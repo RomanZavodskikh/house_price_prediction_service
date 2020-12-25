@@ -10,8 +10,12 @@ regressor = Regressor()
 print("Regressor is successfully loaded")
 print(time.time() - start_time, "seconds")
 
+@app.route("/", methods = ["GET"])
+def index_page():
+    return render_template('index.html')
+
 @app.route("/predict-hata-price", methods = ["POST", "GET"])
-def index_page(host_id = 0, host_since = 0, host_is_superhost = False,
+def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
     host_has_profile_pic = False, host_identity_verified = False,
     is_location_exact = False, require_guest_profile_picture = False,
     require_guest_phone_verification = False,
@@ -54,6 +58,7 @@ def index_page(host_id = 0, host_since = 0, host_is_superhost = False,
                 square_feet, security_deposit, cleaning_fee,
                 guests_included, extra_people, minimum_nights]]
         )
+        predicted_price = round(predicted_price, 2)
 
         logfile.write(str(predicted_price))
         logfile.write("<response>\n")

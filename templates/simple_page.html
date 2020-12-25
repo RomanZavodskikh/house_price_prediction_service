@@ -1,27 +1,26 @@
 <!doctype html>
 
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="{{ url_for('static', filename='simple_css.css') }}">
     <title>Evaluate your hata!!!</title>
 </head>
 
 <body>
-    <form action="{{ url_for('index_page') }}" method=post>
+    <form action="{{ url_for('predict_page') }}" method=post>
         <dl>
-            <dt>Enter hata parameters: <br></dt>
-            <dd>Host id: <input type=number name="host_id" value={{ host_id }}></input></dd>
-            <dd>Host since: <input type=number name="host_since" value={{ host_since }}></input></dd>
-            <dd>Is superhost: <input type=checkbox name="host_is_superhost"
-                    {{ "checked" if host_is_superhost else "" }}></input></dd>
-            <dd>Host has profile picture: <input type=checkbox name="host_has_profile_pic"
-                    {{ "checked" if host_has_profile_pic else "" }}></input></dd>
-            <dd>Host identity verified: <input type=checkbox name="host_identity_verified"
-                    {{ "checked" if host_identity_verified else "" }}></input></dd>
-            <dd>Location is exact: <input type=checkbox name="is_location_exact"
-                    {{ "checked" if is_location_exact else "" }}></input></dd>
-            <dd>Require guest profile picture: <input type=checkbox name="require_guest_profile_picture"
-                    {{ "checked" if require_guest_profile_picture else "" }}></input></dd>
-            <dd>Require guest phone verification: <input type=checkbox name="require_guest_phone_verification"
-                    {{ "checked" if require_guest_phone_verification else "" }}></input></dd>
+            <dt>Please, fill the form: <br></dt>
+            <dd>
+            <label for="host_id" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Your host id" name="host_id" id='host_id' required />
+            </dd>
+            <dd>
+            <label for="host_since" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Host since" name="host_since" id='host_since' required />
+            </dd>
+            
+            
+            
             <dd>Latitude: <input type=number name="latitude" value={{ latitude }}></input></dd>
             <dd>Longitude: <input type=number name="longitude" value={{ longitude }}></input></dd>
             <dd>Accomodates: <input type=number name="accommodates" value={{ accommodates }}></input></dd>
@@ -34,9 +33,22 @@
             <dd>Guests included: <input type=number name="guests_included" value={{ guests_included }}></input></dd>
             <dd>Extra people: <input type=number name="extra_people" value={{ extra_people }}></input></dd>
             <dd>Minimum nights: <input type=number name="minimum_nights" value={{ minimum_nights }}></input></dd>
+
+            <dd>Is superhost: <input type=checkbox name="host_is_superhost"
+                    {{ "checked" if host_is_superhost else "" }}></input></dd>
+            <dd>Host has profile picture: <input type=checkbox name="host_has_profile_pic"
+                    {{ "checked" if host_has_profile_pic else "" }}></input></dd>
+            <dd>Host identity verified: <input type=checkbox name="host_identity_verified"
+                    {{ "checked" if host_identity_verified else "" }}></input></dd>
+            <dd>Location is exact: <input type=checkbox name="is_location_exact"
+                    {{ "checked" if is_location_exact else "" }}></input></dd>
+            <dd>Require guest profile picture: <input type=checkbox name="require_guest_profile_picture"
+                    {{ "checked" if require_guest_profile_picture else "" }}></input></dd>
+            <dd>Require guest phone verification: <input type=checkbox name="require_guest_phone_verification"
+
             <dd><input type=submit value="Predict price"></input></dd>
         </dl>
     </form>
     <br>Predicted price:<br>
-    {{ predicted_price }}
+    {{ predicted_price }} £
 </body>
