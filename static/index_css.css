@@ -59,6 +59,13 @@ body{
   background-color: #222222;
   font-size:24px;
   font-family: 'Raleway', sans-serif;
+  color: white;
+  text-align:center;
+  
+}
+
+h1{
+color: paleturquoise;
 
 }
 
@@ -72,7 +79,7 @@ body{
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -86,11 +93,11 @@ body{
 }
 
 /* Add a color to the active/current link */
-/*.topnav a.active {
+.topnav a.active {
   background-color: paleTurquoise;
   color: white;
 }
-*/
+
 
 /* Centered section inside the top navigation */
 .topnav-centered a {
@@ -121,3 +128,43 @@ body{
   }
 }
 
+div [id="project-info"]{
+  margin-top: 20px;
+  white-space: pre-line;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+}
+
+
+div [id="contacts"]{
+  margin-top: 20px;
+  white-space: pre-line;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+}
+
+
+div [id="project-info"] a:link, div [id="contacts"] a:link {
+  color: paleturquoise;
+  text-decoration: none;
+}
+
+/* visited link */
+div [id="project-info"] a:visited, div [id="contacts"] a:visited {
+  color: paleturquoise;
+  text-decoration: none;
+}
+
+/* mouse over link */
+div [id="project-info"] a:hover, div [id="contacts"] a:hover {
+  color: turquoise;
+  text-decoration: none;
+}
+
+/* selected link */
+div [id="project-info"] a:active, div [id="contacts"] a:active {
+  color: turquoise;
+  text-decoration: none;
+}

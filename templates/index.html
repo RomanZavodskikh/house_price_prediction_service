@@ -3,10 +3,17 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="{{ url_for('static', filename='index_css.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='london_ico.ico') }}">
     <title>Start page</title>
 </head>
 
 <body>
+<h1>
+Rent price prediction in London
+</h1>
+<dd>
+
+<dd>
 <dd>
 <div class="flip-box">
   <div class="flip-box-inner">
@@ -18,20 +25,26 @@
 
         <!-- Centered link -->
         <div class="topnav-centered">
-          <a href="{{ url_for('predict_page') }}">Find out price</a>
+          <a href="{{ url_for('predict_page') }}">Get price</a>
         </div>
 
         <!-- Left-aligned links (default) -->
-        <a href="#" onclick="onInfoClick()">Info</a>
+        <a href="#" id="info-button" onclick="onInfoClick()" class="active">Info</a>
 
         <!-- Right-aligned links -->
         <div class="topnav-right">
-          <a href="#" onclick="onContactsClick()">Contacts</a>
+          <a href="#" id="contacts-button" onclick="onContactsClick()">Contacts</a>
         </div>
 
       </div>
-      <div id="project-info">Project info</div>
-      <div id="contacts" class="hidden">Romik i Olik</div>
+      <div id="project-info">The service is directed to predict rent price in London using housing information from <a href="https://airbnb.com">airbnb.com</a>.
+        
+       For start you need to click on "Get price" button and fill in the form. Algorithm predicts price of housing in pound sterling (£).</div>
+      <div id="contacts" class="hidden">Roman Zavodskikh
+    <a href="mailto:roman-zavodskikh@yandex.ru">roman-zavodskikh@yandex.ru</a>
+    
+    Olga Novitskaia
+    <a href="mailto:novitskaya.olga.s@mail.ru">novitskaya.olga.s@mail.ru</a></div>
     </div>
   </div>
 </div>

@@ -3,15 +3,14 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="{{ url_for('static', filename='simple_css.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='london_ico.ico') }}">
     <title>Evaluate house in London</title>
 </head>
 
 <body>
-    <div id="map"></div>
-    <div id="mapLat"></div>
-    <div id="mapLng"></div>
-    <form id="upload_features" action="{{ url_for('predict_page') }}" method=post>
-        <dl>
+        <form id="upload_features" action="{{ url_for('predict_page') }}" method=post>
+        <div class="split left">
+        <div class="centered_left">
             <dt>Please, fill the form: <br></dt>
             <dd>
             <label for="latitude" class="form__label"></label>
@@ -71,8 +70,15 @@
             <label for="minimum_nights" class="form__label"></label>
             <input type="number" class="form__field" placeholder="Minimum nights" name="minimum_nights" id='minimum_nights' value="{{ minimum_nights }}" min="1" max="1130" required />
             </dd>
+        
+        </div>
+        </div>
 
-           
+        <div class="split right">
+        <div class="centered_right">
+        <div id="map"></div>
+        <div id="mapLat"></div>
+        <div id="mapLng"></div>
             <dd>
             <label class="checkbox">
                 <span class="checkbox__input">
@@ -150,12 +156,12 @@
                     </div>
                 </div>
             </div>
-            
-        </dl>
-    </form>
-    <br>Predicted price:<br>
-    {{ predicted_price }} £
-
+       <div id="price"> 
+       <dd>Predicted price: {{ predicted_price }} £</dd>
+       </div>
+       </div>
+       </div>
+       </form>
 <script src="{{ url_for('static', filename='simple_js.js') }}"></script>
 <script
 src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=&v=weekly"
