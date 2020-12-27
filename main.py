@@ -22,10 +22,10 @@ def predict_page(host_is_superhost = False,
     host_has_profile_pic = False, host_identity_verified = False,
     is_location_exact = False, require_guest_profile_picture = False,
     require_guest_phone_verification = False,
-    latitude = 0, longitude = 0, accommodates = 0,
-    bathrooms = 0, bedrooms = 0, beds = 0,
-    square_feet = 0, security_deposit = 0, cleaning_fee = 0,
-    guests_included = 0, extra_people = 0, minimum_nights = 0,
+    latitude = 51.5423, longitude = -0.1285, accommodates = "",
+    bathrooms = "", bedrooms = "", beds = "",
+    square_feet = "", security_deposit = "", cleaning_fee = "",
+    guests_included = "", extra_people = "", minimum_nights = "",
     predicted_price = ""):
     if request.method == "POST":
         host_is_superhost = int(bool(request.form.get("host_is_superhost")))

@@ -15,68 +15,68 @@
             <dt>Please, fill the form: <br></dt>
             <dd>
             <label for="latitude" class="form__label"></label>
-            <input type="text" class="form__field" placeholder="Latitude" name="latitude" id='latitude' required readonly />
+            <input type="text" class="form__field" placeholder="Latitude" name="latitude" id='latitude' value="{{ latitude }}" required readonly />
             </dd>            
             
             <dd>
             <label for="longitude" class="form__label"></label>
-            <input type="text" class="form__field" placeholder="Longitude" name="longitude" id='longitude' required readonly />
+            <input type="text" class="form__field" placeholder="Longitude" name="longitude" id='longitude' value="{{ longitude }}" required readonly />
             </dd>
             
             <dd>
             <label for="accommodates" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Accommodates" name="accommodates" id='accommodates' required />
+            <input type="number" class="form__field" placeholder="Accommodates" name="accommodates" id='accommodates' value="{{ accommodates }}" required />
             </dd>
             
             <dd>
             <label for="bathrooms" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Bathrooms" name="bathrooms" id='bathrooms' required />
+            <input type="number" class="form__field" placeholder="Bathrooms" name="bathrooms" id='bathrooms' value="{{ bathrooms }}" required />
             </dd>   
 
             <dd>
             <label for="bedrooms" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Bedrooms" name="bedrooms" id='bedrooms' required />
+            <input type="number" class="form__field" placeholder="Bedrooms" name="bedrooms" id='bedrooms' value="{{ bedrooms }}" required />
             </dd>
             
             <dd>
             <label for="beds" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Beds" name="beds" id='beds' required />
+            <input type="number" class="form__field" placeholder="Beds" name="beds" id='beds' value="{{ beds }}" required />
             </dd>
 
             <dd>
             <label for="square_feet" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Square feet area" name="square_feet" id='square_feet' required />
+            <input type="number" class="form__field" placeholder="Square feet area" name="square_feet" id='square_feet' value="{{ square_feet }}" required />
             </dd>  
             
             <dd>
             <label for="security_deposit" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Security deposit" name="security_deposit" id='security_deposit' required />
+            <input type="number" class="form__field" placeholder="Security deposit" name="security_deposit" id='security_deposit' value="{{ security_deposit }}" required />
             </dd>
             
             <dd>
             <label for="cleaning_fee" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Cleaning fee" name="cleaning_fee" id='cleaning_fee' required />
+            <input type="number" class="form__field" placeholder="Cleaning fee" name="cleaning_fee" id='cleaning_fee' value="{{ cleaning_fee }}" required />
             </dd>
 
             <dd>
             <label for="guests_included" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Guests included" name="guests_included" id='guests_included' required />
+            <input type="number" class="form__field" placeholder="Guests included" name="guests_included" id='guests_included' value="{{ guests_included }}" required />
             </dd>
             <dd>
             <label for="extra_people" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Extra people" name="extra_people" id='extra_people' required />
+            <input type="number" class="form__field" placeholder="Extra people" name="extra_people" id='extra_people' value="{{ extra_people }}" required />
             </dd>        
                         
             <dd>
             <label for="minimum_nights" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Minimum nights" name="minimum_nights" id='minimum_nights' required />
+            <input type="number" class="form__field" placeholder="Minimum nights" name="minimum_nights" id='minimum_nights' value="{{ minimum_nights }}" required />
             </dd>
 
            
             <dd>
             <label class="checkbox">
                 <span class="checkbox__input">
-                    <input type="checkbox" name="host_is_superhost">
+                    <input type="checkbox" name="host_is_superhost" {{ "checked" if host_is_superhost else "" }}>
                     <span class="checkbox__control">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                             <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -91,7 +91,7 @@
            <dd> 
             <label class="checkbox">
                 <span class="checkbox__input">
-                    <input type="checkbox" name="host_has_profile_pic">
+                    <input type="checkbox" name="host_has_profile_pic" {{ "checked" if host_has_profile_pic else "" }}>
                     <span class="checkbox__control">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                             <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -104,7 +104,7 @@
             <dd>
             <label class="checkbox">
                 <span class="checkbox__input">
-                    <input type="checkbox" name="host_identity_verified">
+                    <input type="checkbox" name="host_identity_verified" {{ "checked" if host_identity_verified else "" }}>
                     <span class="checkbox__control">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                             <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -117,7 +117,7 @@
             <dd>
             <label class="checkbox">
                 <span class="checkbox__input">
-                    <input type="checkbox" name="require_guest_profile_picture">
+                    <input type="checkbox" name="require_guest_profile_picture" {{ "checked" if require_guest_profile_picture else "" }}>
                     <span class="checkbox__control">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                             <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -130,7 +130,7 @@
             <dd>
             <label class="checkbox">
                 <span class="checkbox__input">
-                    <input type="checkbox" name="require_guest_phone_verification">
+                    <input type="checkbox" name="require_guest_phone_verification" {{ "checked" if require_guest_phone_verification else "" }}>
                     <span class="checkbox__control">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                             <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
