@@ -20,7 +20,7 @@ def index_page():
 @app.route("/predict-hata-price", methods = ["POST", "GET"])
 def predict_page(host_is_superhost = False,
     host_has_profile_pic = False, host_identity_verified = False,
-    is_location_exact = False, require_guest_profile_picture = False,
+    require_guest_profile_picture = False,
     require_guest_phone_verification = False,
     latitude = 51.5423, longitude = -0.1285, accommodates = "",
     bathrooms = "", bedrooms = "", beds = "",
@@ -31,7 +31,6 @@ def predict_page(host_is_superhost = False,
         host_is_superhost = int(bool(request.form.get("host_is_superhost")))
         host_has_profile_pic = int(bool(request.form.get("host_has_profile_pic")))
         host_identity_verified = int(bool(request.form.get("host_identity_verified")))
-        is_location_exact = int(bool(request.form.get("is_location_exact")))
         require_guest_profile_picture = int(bool(request.form.get("require_guest_profile_picture")))
         require_guest_phone_verification = int(bool(request.form.get("require_guest_phone_verification")))
         latitude = float(request.form["latitude"])
@@ -71,7 +70,6 @@ def predict_page(host_is_superhost = False,
         host_is_superhost = host_is_superhost,
         host_has_profile_pic = host_has_profile_pic,
         host_identity_verified = host_identity_verified,
-        is_location_exact = is_location_exact,
         require_guest_profile_picture = require_guest_profile_picture,
         require_guest_phone_verification = require_guest_phone_verification,
         latitude = latitude, longitude = longitude, accommodates = accommodates,
