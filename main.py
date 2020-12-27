@@ -64,6 +64,7 @@ def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
         logfile.write("<response>\n")
         logfile.close()
 
+    time.sleep(3)
     return render_template('simple_page.html', host_id = host_id,
         host_since = host_since, host_is_superhost = host_is_superhost,
         host_has_profile_pic = host_has_profile_pic,

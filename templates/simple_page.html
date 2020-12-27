@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form action="{{ url_for('predict_page') }}" method=post>
+    <form id="upload_features" action="{{ url_for('predict_page') }}" method=post>
         <dl>
             <dt>Please, fill the form: <br></dt>
             <dd>
@@ -19,36 +19,161 @@
             <input type="number" class="form__field" placeholder="Host since" name="host_since" id='host_since' required />
             </dd>
             
+            <dd>
+            <label for="latitude" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Latitude" name="latitude" id='latitude' required />
+            </dd>            
             
+            <dd>
+            <label for="longitude" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Longitude" name="longitude" id='longitude' required />
+            </dd>
             
-            <dd>Latitude: <input type=number name="latitude" value={{ latitude }}></input></dd>
-            <dd>Longitude: <input type=number name="longitude" value={{ longitude }}></input></dd>
-            <dd>Accomodates: <input type=number name="accommodates" value={{ accommodates }}></input></dd>
-            <dd>Bathrooms: <input type=number name="bathrooms" value={{ bathrooms }}></input></dd>
-            <dd>Bedrooms: <input type=number name="bedrooms" value={{ bedrooms }}></input></dd>
-            <dd>Beds: <input type=number name="beds" value={{ beds }}></input></dd>
-            <dd>Square feet area: <input type=number name="square_feet" value={{ square_feet }}></input></dd>
-            <dd>Security deposit: <input type=number name="security_deposit" value={{ security_deposit }}></input></dd>
-            <dd>Cleaning fee: <input type=number name="cleaning_fee" value={{ cleaning_fee }}></input></dd>
-            <dd>Guests included: <input type=number name="guests_included" value={{ guests_included }}></input></dd>
-            <dd>Extra people: <input type=number name="extra_people" value={{ extra_people }}></input></dd>
-            <dd>Minimum nights: <input type=number name="minimum_nights" value={{ minimum_nights }}></input></dd>
+            <dd>
+            <label for="accommodates" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Accommodates" name="accommodates" id='accommodates' required />
+            </dd>
+            
+            <dd>
+            <label for="bathrooms" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Bathrooms" name="bathrooms" id='bathrooms' required />
+            </dd>   
 
-            <dd>Is superhost: <input type=checkbox name="host_is_superhost"
-                    {{ "checked" if host_is_superhost else "" }}></input></dd>
-            <dd>Host has profile picture: <input type=checkbox name="host_has_profile_pic"
-                    {{ "checked" if host_has_profile_pic else "" }}></input></dd>
-            <dd>Host identity verified: <input type=checkbox name="host_identity_verified"
-                    {{ "checked" if host_identity_verified else "" }}></input></dd>
-            <dd>Location is exact: <input type=checkbox name="is_location_exact"
-                    {{ "checked" if is_location_exact else "" }}></input></dd>
-            <dd>Require guest profile picture: <input type=checkbox name="require_guest_profile_picture"
-                    {{ "checked" if require_guest_profile_picture else "" }}></input></dd>
-            <dd>Require guest phone verification: <input type=checkbox name="require_guest_phone_verification"
+            <dd>
+            <label for="bedrooms" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Bedrooms" name="bedrooms" id='bedrooms' required />
+            </dd>
+            
+            <dd>
+            <label for="beds" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Beds" name="beds" id='beds' required />
+            </dd>
 
-            <dd><input type=submit value="Predict price"></input></dd>
+            <dd>
+            <label for="square_feet" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Square feet area" name="square_feet" id='square_feet' required />
+            </dd>  
+            
+            <dd>
+            <label for="security_deposit" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Security deposit" name="security_deposit" id='security_deposit' required />
+            </dd>
+            
+            <dd>
+            <label for="cleaning_fee" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Cleaning fee" name="cleaning_fee" id='cleaning_fee' required />
+            </dd>
+
+            <dd>
+            <label for="guests_included" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Guests included" name="guests_included" id='guests_included' required />
+            </dd>
+            <dd>
+            <label for="extra_people" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Extra people" name="extra_people" id='extra_people' required />
+            </dd>        
+                        
+            <dd>
+            <label for="minimum_nights" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Minimum nights" name="minimum_nights" id='minimum_nights' required />
+            </dd>
+
+           
+            <dd>
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" name="host_is_superhost">
+                    <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                </span>
+                <span class="radio__label">Is host superhost?</span>
+            </label>
+            </dd>
+
+
+ 
+           <dd> 
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" name="host_has_profile_pic">
+                    <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                </span>
+                <span class="radio__label">Has host profile picture?</span>
+            </label>
+            </dd>
+            
+            <dd>
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" name="host_identity_verified">
+                    <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                </span>
+                <span class="radio__label">Has host identity been verified?</span>
+            </label>
+            </dd>
+
+            <dd>
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" name="is_location_exact">
+                    <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                </span>
+                <span class="radio__label">Is location exact?</span>
+            </label>
+            </dd>
+            
+            <dd>
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" name="require_guest_profile_picture">
+                    <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                </span>
+                <span class="radio__label">Is guest profile picture required?</span>
+            </label>
+            </dd>
+
+            <dd>
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" name="require_guest_phone_verification">
+                    <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                </span>
+                <span class="radio__label">Is guest phone verification required?</span>
+            </label>
+            </dd>
+
+            <!-- <dd><input type=submit value="Predict price"></input></dd> -->
+            <div class="main">
+                <input type=submit class="button" value="Predict price"</input>
+                <div class="loader">
+                    <div class="check">
+                    <span class="check-one"></span>
+                    <span class="check-two"></span>
+                    </div>
+                </div>
+            </div>
+            
         </dl>
     </form>
     <br>Predicted price:<br>
     {{ predicted_price }} £
+
+<script src="{{ url_for('static', filename='simple_js.js') }}"></script>
 </body>
