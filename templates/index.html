@@ -18,20 +18,23 @@
 
         <!-- Centered link -->
         <div class="topnav-centered">
-          <a href="{{ url_for('predict_page') }}" class="active">Find out price</a>
+          <a href="{{ url_for('predict_page') }}">Find out price</a>
         </div>
 
         <!-- Left-aligned links (default) -->
-        <a href="#news">Info</a>
+        <a href="#" onclick="onInfoClick()">Info</a>
 
         <!-- Right-aligned links -->
         <div class="topnav-right">
-          <a href="#search">Contacts</a>
+          <a href="#" onclick="onContactsClick()">Contacts</a>
         </div>
 
       </div>
+      <div id="project-info">Project info</div>
+      <div id="contacts" class="hidden">Romik i Olik</div>
     </div>
   </div>
 </div>
 </dd>
+<script src="{{ url_for('static', filename='index_js.js') }}"></script>
 </body>
