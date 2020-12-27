@@ -7,26 +7,25 @@
 </head>
 
 <body>
+    <div id="map"></div>
+    <div id="mapLat"></div>
+    <div id="mapLng"></div>
     <form id="upload_features" action="{{ url_for('predict_page') }}" method=post>
         <dl>
             <dt>Please, fill the form: <br></dt>
             <dd>
-            <label for="host_id" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Your host id" name="host_id" id='host_id' required />
-            </dd>
-            <dd>
-            <label for="host_since" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Host since" name="host_since" id='host_since' required />
-            </dd>
-            
-            <dd>
             <label for="latitude" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Latitude" name="latitude" id='latitude' required />
+            <input type="text" class="form__field" placeholder="Latitude" name="latitude" id='latitude' required readonly />
             </dd>            
             
             <dd>
             <label for="longitude" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Longitude" name="longitude" id='longitude' required />
+            <input type="text" class="form__field" placeholder="Longitude" name="longitude" id='longitude' required readonly />
+            </dd>
+
+            <dd>
+            <label for="host_since" class="form__label"></label>
+            <input type="number" class="form__field" placeholder="Host since" name="host_since" id='host_since' required />
             </dd>
             
             <dd>
@@ -119,19 +118,6 @@
                 <span class="radio__label">Has host identity been verified?</span>
             </label>
             </dd>
-
-            <dd>
-            <label class="checkbox">
-                <span class="checkbox__input">
-                    <input type="checkbox" name="is_location_exact">
-                    <span class="checkbox__control">
-                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
-                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
-                        </span>
-                </span>
-                <span class="radio__label">Is location exact?</span>
-            </label>
-            </dd>
             
             <dd>
             <label class="checkbox">
@@ -176,4 +162,8 @@
     {{ predicted_price }} £
 
 <script src="{{ url_for('static', filename='simple_js.js') }}"></script>
+<script
+src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=&v=weekly"
+defer
+></script>
 </body>

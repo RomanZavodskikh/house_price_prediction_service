@@ -15,7 +15,7 @@ def index_page():
     return render_template('index.html')
 
 @app.route("/predict-hata-price", methods = ["POST", "GET"])
-def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
+def predict_page(host_since = 0, host_is_superhost = False,
     host_has_profile_pic = False, host_identity_verified = False,
     is_location_exact = False, require_guest_profile_picture = False,
     require_guest_phone_verification = False,
@@ -25,7 +25,6 @@ def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
     guests_included = 0, extra_people = 0, minimum_nights = 0,
     predicted_price = ""):
     if request.method == "POST":
-        host_id = int(request.form["host_id"])
         host_since = int(request.form["host_since"])
         host_is_superhost = int(bool(request.form.get("host_is_superhost")))
         host_has_profile_pic = int(bool(request.form.get("host_has_profile_pic")))
@@ -33,8 +32,8 @@ def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
         is_location_exact = int(bool(request.form.get("is_location_exact")))
         require_guest_profile_picture = int(bool(request.form.get("require_guest_profile_picture")))
         require_guest_phone_verification = int(bool(request.form.get("require_guest_phone_verification")))
-        latitude = int(request.form["latitude"])
-        longitude = int(request.form["longitude"])
+        latitude = float(request.form["latitude"])
+        longitude = float(request.form["longitude"])
         accommodates = int(request.form["accommodates"])
         bathrooms = int(request.form["bathrooms"])
         bedrooms = int(request.form["bedrooms"])
@@ -50,8 +49,8 @@ def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
         logfile.write("<response>\n")
 
         predicted_price = regressor.predict_price(
-                [[host_id, host_since, host_is_superhost, host_has_profile_pic,
-                host_identity_verified, is_location_exact,
+                [[host_since, host_is_superhost, host_has_profile_pic,
+                host_identity_verified, 1, # consider location is always exact
                 require_guest_profile_picture, require_guest_phone_verification,
                 latitude, longitude, accommodates, bathrooms,
                 bedrooms, beds,
@@ -65,7 +64,7 @@ def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
         logfile.close()
 
     time.sleep(3)
-    return render_template('simple_page.html', host_id = host_id,
+    return render_template('simple_page.html',
         host_since = host_since, host_is_superhost = host_is_superhost,
         host_has_profile_pic = host_has_profile_pic,
         host_identity_verified = host_identity_verified,

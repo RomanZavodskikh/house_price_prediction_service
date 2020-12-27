@@ -1,5 +1,9 @@
-input[type=number]{
+#map {
+  width: 50%;
+  height: 300px;
+}
 
+.form__field {
   padding: 5px 15px;
   margin: 10px 0px;
   font-size:24px;
