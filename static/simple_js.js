@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initMap() {
-  const myLatlng = { lat: 51.507222222, lng: 0.1275 };
+  const myLatlng = { lat: 51.5423, lng: -0.1285 };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 9,
+    zoom: 13,
     center: myLatlng,
   });
   // Create the initial InfoWindow.
