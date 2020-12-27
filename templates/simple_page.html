@@ -7,6 +7,9 @@
 </head>
 
 <body>
+    <div id="map"></div>
+    <div id="mapLat"></div>
+    <div id="mapLng"></div>
     <form id="upload_features" action="{{ url_for('predict_page') }}" method=post>
         <dl>
             <dt>Please, fill the form: <br></dt>
@@ -21,12 +24,12 @@
             
             <dd>
             <label for="latitude" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Latitude" name="latitude" id='latitude' required />
+            <input type="text" class="form__field" placeholder="Latitude" name="latitude" id='latitude' required readonly />
             </dd>            
             
             <dd>
             <label for="longitude" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Longitude" name="longitude" id='longitude' required />
+            <input type="text" class="form__field" placeholder="Longitude" name="longitude" id='longitude' required readonly />
             </dd>
             
             <dd>
@@ -176,4 +179,8 @@
     {{ predicted_price }} £
 
 <script src="{{ url_for('static', filename='simple_js.js') }}"></script>
+<script
+src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=&v=weekly"
+defer
+></script>
 </body>
