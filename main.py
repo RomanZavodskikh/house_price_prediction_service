@@ -1,8 +1,11 @@
 from regressor import Regressor
 from codecs import open
 import time
+import numpy as np
 from flask import Flask, render_template, request
 app = Flask(__name__)
+
+EPS = 1e-3
 
 print("Load regressor")
 start_time = time.time()
@@ -56,6 +59,7 @@ def predict_page(host_is_superhost = False,
                 square_feet, security_deposit, cleaning_fee,
                 guests_included, extra_people, minimum_nights]]
         )
+        predicted_price = np.power(predicted_price, 2) - EPS
         predicted_price = round(predicted_price, 2)
 
         logfile.write(str(predicted_price))
