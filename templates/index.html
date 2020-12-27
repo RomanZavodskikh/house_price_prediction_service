@@ -14,11 +14,27 @@
       <img src="{{ url_for('static', filename='london.png') }}" alt="london" width="600" height="300">
     </div>
     <div class="flip-box-back">
-      <h2>
-      <a href="{{ url_for('predict_page') }}">Start!</a>
-      </h2>
+      <div class="topnav">
+
+        <!-- Centered link -->
+        <div class="topnav-centered">
+          <a href="{{ url_for('predict_page') }}">Find out price</a>
+        </div>
+
+        <!-- Left-aligned links (default) -->
+        <a href="#" onclick="onInfoClick()">Info</a>
+
+        <!-- Right-aligned links -->
+        <div class="topnav-right">
+          <a href="#" onclick="onContactsClick()">Contacts</a>
+        </div>
+
+      </div>
+      <div id="project-info">Project info</div>
+      <div id="contacts" class="hidden">Romik i Olik</div>
     </div>
   </div>
 </div>
 </dd>
+<script src="{{ url_for('static', filename='index_js.js') }}"></script>
 </body>
