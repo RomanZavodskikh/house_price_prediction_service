@@ -1,10 +1,21 @@
 <!doctype html>
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='simple_css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_css.css') }}">
     <title>Start page</title>
 </head>
 
 <body>
-<a href="{{ url_for('predict_page') }}">Start!</a>
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <h2>Front Side</h2>
+    </div>
+    <div class="flip-box-back">
+      <a href="{{ url_for('predict_page') }}">Start!</a>
+      <h2>Back Side</h2>
+    </div>
+  </div>
+</div>
+
 </body>
