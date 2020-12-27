@@ -25,51 +25,51 @@
             
             <dd>
             <label for="accommodates" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Accommodates" name="accommodates" id='accommodates' value="{{ accommodates }}" required />
+            <input type="number" class="form__field" placeholder="Accommodates" name="accommodates" id='accommodates' value="{{ accommodates }}" min="1" max="20" required />
             </dd>
             
             <dd>
             <label for="bathrooms" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Bathrooms" name="bathrooms" id='bathrooms' value="{{ bathrooms }}" required />
+            <input type="number" class="form__field" placeholder="Bathrooms" name="bathrooms" id='bathrooms' value="{{ bathrooms }}" min="0" max="14" required />
             </dd>   
 
             <dd>
             <label for="bedrooms" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Bedrooms" name="bedrooms" id='bedrooms' value="{{ bedrooms }}" required />
+            <input type="number" class="form__field" placeholder="Bedrooms" name="bedrooms" id='bedrooms' value="{{ bedrooms }}" min="0" max="12" required />
             </dd>
             
             <dd>
             <label for="beds" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Beds" name="beds" id='beds' value="{{ beds }}" required />
+            <input type="number" class="form__field" placeholder="Beds" name="beds" id='beds' value="{{ beds }}" min="0" max="16" required />
             </dd>
 
             <dd>
             <label for="square_feet" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Square feet area" name="square_feet" id='square_feet' value="{{ square_feet }}" required />
+            <input type="number" class="form__field" placeholder="Square feet area" name="square_feet" id='square_feet' value="{{ square_feet }}" min="0" max="3000" required />
             </dd>  
             
             <dd>
             <label for="security_deposit" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Security deposit" name="security_deposit" id='security_deposit' value="{{ security_deposit }}" required />
+            <input type="number" class="form__field" placeholder="Security deposit" name="security_deposit" id='security_deposit' value="{{ security_deposit }}" min="0" max="4200" required />
             </dd>
             
             <dd>
             <label for="cleaning_fee" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Cleaning fee" name="cleaning_fee" id='cleaning_fee' value="{{ cleaning_fee }}" required />
+            <input type="number" class="form__field" placeholder="Cleaning fee" name="cleaning_fee" id='cleaning_fee' value="{{ cleaning_fee }}" min="0" max="614" required />
             </dd>
 
             <dd>
             <label for="guests_included" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Guests included" name="guests_included" id='guests_included' value="{{ guests_included }}" required />
+            <input type="number" class="form__field" placeholder="Guests included" name="guests_included" id='guests_included' value="{{ guests_included }}" min="1" max="30" required />
             </dd>
             <dd>
             <label for="extra_people" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Extra people" name="extra_people" id='extra_people' value="{{ extra_people }}" required />
+            <input type="number" class="form__field" placeholder="Extra people" name="extra_people" id='extra_people' value="{{ extra_people }}" min="0" max="240" required />
             </dd>        
                         
             <dd>
             <label for="minimum_nights" class="form__label"></label>
-            <input type="number" class="form__field" placeholder="Minimum nights" name="minimum_nights" id='minimum_nights' value="{{ minimum_nights }}" required />
+            <input type="number" class="form__field" placeholder="Minimum nights" name="minimum_nights" id='minimum_nights' value="{{ minimum_nights }}" min="1" max="1130" required />
             </dd>
 
            
