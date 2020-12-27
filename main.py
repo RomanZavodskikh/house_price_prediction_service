@@ -51,7 +51,7 @@ def predict_page(host_id = 0, host_since = 0, host_is_superhost = False,
 
         predicted_price = regressor.predict_price(
                 [[host_id, host_since, host_is_superhost, host_has_profile_pic,
-                host_identity_verified, is_location_exact,
+                host_identity_verified, 1, # consider location is always exact
                 require_guest_profile_picture, require_guest_phone_verification,
                 latitude, longitude, accommodates, bathrooms,
                 bedrooms, beds,
